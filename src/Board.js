@@ -146,7 +146,7 @@
       var curRow = 0;
       var playerCount = 0;
       for (var i = 0; i < this.get(curRow).length - 1; i++) {
-        var row = this.get(i);
+        var row = this.get(curRow);
         if (row[majorDiagonalColumnIndexAtFirstRow] === 1) {
           playerCount++;
           if (playerCount > 1) {
@@ -177,12 +177,31 @@
     //
     // test if a specific minor diagonal on this board contains a conflict
     hasMinorDiagonalConflictAt: function(minorDiagonalColumnIndexAtFirstRow) {
-      return false; // fixme
+      var curRow = 0;
+      var playerCount = 0;
+      for (var i = this.get(curRow).length - 1; i >= 0; i--) {
+        var row = this.get(curRow);
+        if (row[minorDiagonalColumnIndexAtFirstRow] === 1) {
+          playerCount++;
+          if (playerCount > 1) {
+            return true;
+          }
+        }
+        minorDiagonalColumnIndexAtFirstRow--;
+        curRow++;
+      }
+      return false;
     },
 
     // test if any minor diagonals on this board contain conflicts
     hasAnyMinorDiagonalConflicts: function() {
-      return false; // fixme
+      var n = this.get('n');
+      for(var i = n; i >= 0; i--){
+        if(this.hasMinorDiagonalConflictAt(i)){
+          return true;
+        }
+      }
+      return false;
     }
 
     /*--------------------  End of Helper Functions  ---------------------*/
