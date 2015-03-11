@@ -110,12 +110,30 @@
     //
     // test if a specific column on this board contains a conflict
     hasColConflictAt: function(colIndex) {
-      return false; // fixme
+      var curRow = 0;
+      var playerCount = 0;
+      for (var i = 0; i < this.get(curRow).length - 1; i++) {
+        var row = this.get(i);
+        if (row[colIndex] === 1) {
+          playerCount++;
+          if (playerCount > 1) {
+            return true;
+          }
+        }
+        curRow++;
+      }
+      return false;
     },
 
     // test if any columns on this board contain conflicts
     hasAnyColConflicts: function() {
-      return false; // fixme
+      var n = this.get('n');
+      for(var i = 0; i < n; i++){
+        if(this.hasColConflictAt(i)){
+          return true;
+        }
+      }
+      return false;
     },
 
 
