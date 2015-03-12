@@ -44,7 +44,7 @@ window.countNRooksSolutions = function(n) {
     //rows[0][0] = 1;
     var i = 0, j = 0;
     for(; i < n; i++, j++){
-      row[i] = 1;
+      rows[i,j] = 1;
       row = rows[i++];
 
       // if board.hasColConflictsAt(i)
