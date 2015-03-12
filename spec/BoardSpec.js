@@ -55,12 +55,30 @@ describe("Board", function() {
     ]);
   });
 
+  describe("Another board with major diagonal conflicts (phantom board)", function() {
+    verifyConflictTypes(['majorDiagonal', 'queens'], [
+      [0, 0, 0, 0],
+      [1, 0, 0, 0],
+      [0, 1, 0, 0],
+      [0, 0, 0, 0]
+    ]);
+  });
+
   describe("Board with minor diagonal conflicts", function() {
     verifyConflictTypes(['minorDiagonal', 'queens'], [
       [0, 0, 1, 0],
       [0, 0, 0, 0],
       [1, 0, 0, 0],
       [0, 0, 0, 0]
+    ]);
+  });
+
+  describe("Another board with minor diagonal conflicts (phantom board)", function() {
+    verifyConflictTypes(['minorDiagonal', 'queens'], [
+      [0, 0, 0, 0],
+      [0, 0, 0, 1],
+      [0, 0, 0, 0],
+      [0, 1, 0, 0]
     ]);
   });
 });
