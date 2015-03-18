@@ -105,9 +105,9 @@
     // test if a specific column on this board contains a conflict
     hasColConflictAt: function(colIndex) {
       var grid = this.rows(), n = this.get('n');
-      var row = 0, sum = 0;
-      for (; row < n; row++) {
-        sum += grid[row][colIndex]; 
+      var sum = 0;
+      for (var rowIndex = 0; rowIndex < n; rowIndex++) {
+        sum += grid[rowIndex][colIndex]; 
         if (sum > 1) return true;
       }
       return false;
