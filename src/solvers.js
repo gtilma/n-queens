@@ -122,7 +122,7 @@ window.countNQueensSolutions = function (n) {
     }
   };
 
-  findSolution(0, n, board) ;
+  findSolution(0, n, board);
 
   console.log('Number of solutions for ' + n + ' queens:', solutionCount);
   return solutionCount;
