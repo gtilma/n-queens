@@ -46,7 +46,7 @@ describe("Board", function() {
     ]);
   });
 
-  describe("Board with major diagonal conflicts", function() {
+  describe("A 4x4 board with major diagonal conflicts", function() {
     verifyConflictTypes(['majorDiagonal', 'queens'], [
       [0, 1, 0, 0],
       [0, 0, 1, 0],
@@ -55,6 +55,7 @@ describe("Board", function() {
     ]);
   });
 
+<<<<<<< HEAD
   describe("Another board with major diagonal conflicts (phantom board)", function() {
     verifyConflictTypes(['majorDiagonal', 'queens'], [
       [0, 0, 0, 0],
@@ -65,6 +66,18 @@ describe("Board", function() {
   });
 
   describe("Board with minor diagonal conflicts", function() {
+=======
+  describe("Another 4x4 board with major diagonal conflicts", function() {
+    verifyConflictTypes(['majorDiagonal', 'queens'], [
+      [0, 0, 0, 0],
+      [0, 0, 0, 0],
+      [1, 0, 0, 0],
+      [0, 1, 0, 0]
+    ]);
+  });
+
+  describe("A 4x4 board with minor diagonal conflicts", function() {
+>>>>>>> origin/reimplementation
     verifyConflictTypes(['minorDiagonal', 'queens'], [
       [0, 0, 1, 0],
       [0, 0, 0, 0],
@@ -73,12 +86,25 @@ describe("Board", function() {
     ]);
   });
 
-  describe("Another board with minor diagonal conflicts (phantom board)", function() {
+  describe("Another 4x4 board with minor diagonal conflicts", function() {
     verifyConflictTypes(['minorDiagonal', 'queens'], [
       [0, 0, 0, 0],
-      [0, 0, 0, 1],
       [0, 0, 0, 0],
-      [0, 1, 0, 0]
+      [0, 0, 0, 1],
+      [0, 0, 1, 0]
     ]);
   });
+
+  describe("A 7x7 board with minor diagonal conflicts", function() {
+    verifyConflictTypes(['minorDiagonal', 'queens'], [
+      [0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 1],
+      [0, 0, 0, 0, 0, 1, 0]
+    ]);
+  });
+
 });
